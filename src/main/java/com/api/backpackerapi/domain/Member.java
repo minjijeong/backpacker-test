@@ -1,18 +1,15 @@
 package com.api.backpackerapi.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.sun.istack.NotNull;
-import io.swagger.annotations.ApiImplicitParam;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import net.bytebuddy.implementation.bind.annotation.IgnoreForBinding;
-import springfox.documentation.annotations.ApiIgnore;
 
 @Entity
 @Getter
@@ -22,24 +19,26 @@ public class Member {
     // PK 지정
     @Id
     @GeneratedValue(strategy =  GenerationType.AUTO) // 데이터베이스에 따라 자동으로 ID가 지정
-    public long id;
+    private long id;
 
-    @Column(length = 100, nullable = false)
-    public String name;
+    @Column(length = 20, nullable = false)
+    private String name;
 
-    @Column(length = 100, nullable = false)
-    public String nickName;
+    @Column(length = 30, nullable = false)
+    private String nickName;
 
     @Column(nullable = false)
-    public String passwords;
+    private String passwords;
 
     @Column(length = 12, nullable = false)
-    public String phone;
+    private String phone;
 
     @Column(nullable = false)
-    public String email;
+    private String email;
 
     @Column(length = 1)
-    public String gender;
+    private String gender;
 
+    @OneToMany
+    private List<Order> orders;
 }
