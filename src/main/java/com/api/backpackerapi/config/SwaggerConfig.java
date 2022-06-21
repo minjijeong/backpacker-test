@@ -1,17 +1,12 @@
-package com.api.backpackerapi;
+package com.api.backpackerapi.config;
 
-import io.swagger.annotations.ApiResponse;
-import java.util.ArrayList;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
-import springfox.documentation.builders.ResponseMessageBuilder;
-import springfox.documentation.schema.ModelRef;
 import springfox.documentation.service.ApiInfo;
-import springfox.documentation.service.ResponseMessage;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 
@@ -19,10 +14,12 @@ import springfox.documentation.spring.web.plugins.Docket;
 @EnableWebMvc
 public class SwaggerConfig {
 
+    private final String version = "v1";
     @Bean
     public Docket swaggerAPI(){
         //Docket : swagger Bean
         return new Docket(DocumentationType.OAS_30)
+                .groupName(version)
                 .useDefaultResponseMessages(true) //기본 응답 메시지 표시 여부
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.api.backpackerapi")) //swagger탐색 대상 패키지
@@ -34,8 +31,8 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("api swagger")
-                .description("api description")
+                .title("[아이디어스] 회원 정보 조회 API")
+                .description("회원, 각 회원의 주문상세 내역을 조회할 수 있습니다. ")
                 .version("1.0")
                 .build();
     }
