@@ -1,7 +1,7 @@
 package com.api.backpackerapi;
 
-import com.api.backpackerapi.domain.Member;
-import com.api.backpackerapi.domain.OrderDt;
+import com.api.backpackerapi.entity.Member;
+import com.api.backpackerapi.entity.OrderDt;
 import com.api.backpackerapi.repository.MemberRepository;
 import com.api.backpackerapi.repository.OrderDtRepository;
 import java.time.LocalDateTime;

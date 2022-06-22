@@ -2,8 +2,7 @@ package com.api.backpackerapi;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.api.backpackerapi.domain.Member;
-import com.api.backpackerapi.domain.OrderDt;
+import com.api.backpackerapi.entity.OrderDt;
 import com.api.backpackerapi.repository.OrderDtRepository;
 import java.time.LocalDateTime;
 import java.util.ArrayList;

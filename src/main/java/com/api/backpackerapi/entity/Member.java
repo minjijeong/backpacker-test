@@ -1,4 +1,4 @@
-package com.api.backpackerapi.domain;
+package com.api.backpackerapi.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.time.LocalDateTime;

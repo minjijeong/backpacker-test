@@ -1,8 +1,7 @@
 package com.api.backpackerapi;
 
-import com.api.backpackerapi.domain.Member;
+import com.api.backpackerapi.entity.Member;
 import com.api.backpackerapi.dto.member.MemberCreateRequest;
-import com.api.backpackerapi.dto.member.MemberSelectRequest;
 import com.api.backpackerapi.dto.response.Response;
 import com.api.backpackerapi.service.ApiService;
 import io.swagger.annotations.Api;

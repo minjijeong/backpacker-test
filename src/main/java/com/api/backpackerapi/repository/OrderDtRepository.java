@@ -1,7 +1,6 @@
 package com.api.backpackerapi.repository;
 
-import com.api.backpackerapi.domain.Member;
-import com.api.backpackerapi.domain.OrderDt;
+import com.api.backpackerapi.entity.OrderDt;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

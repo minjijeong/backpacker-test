@@ -1,6 +1,6 @@
 package com.api.backpackerapi.service;
 
-import com.api.backpackerapi.domain.Member;
+import com.api.backpackerapi.entity.Member;
 import com.api.backpackerapi.dto.member.MemberCreateRequest;
 import com.api.backpackerapi.repository.MemberRepository;
 import java.util.List;

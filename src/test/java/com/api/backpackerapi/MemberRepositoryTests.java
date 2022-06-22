@@ -2,14 +2,13 @@ package com.api.backpackerapi;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.api.backpackerapi.domain.Member;
-import com.api.backpackerapi.domain.OrderDt;
+import com.api.backpackerapi.entity.Member;
+import com.api.backpackerapi.entity.OrderDt;
 import com.api.backpackerapi.repository.MemberRepository;
 import com.api.backpackerapi.repository.OrderDtRepository;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import org.assertj.core.api.Assertions;
@@ -85,6 +84,12 @@ public class MemberRepositoryTests {
                 .paymentDateTime(LocalDateTime.of(2022,06,18,11,13,10))
                 .memberId(1)
                 .build());
+        orderList.add(OrderDt.builder()
+                .itemName("바지13")
+                .orderNumber("202206151823")
+                .paymentDateTime(LocalDateTime.of(2022,06,15,18,23,10))
+                .memberId(3)
+                .build());
         orderList = orderRepository.saveAll(orderList);
         clear();
         System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<init Setting>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
@@ -134,7 +139,7 @@ public class MemberRepositoryTests {
     @Test
     void 회원_조회_이메일(){
         // 이메일로 조회
-        String email = "test1@gmail.com";
+        String email = "test2@gmail.com";
         List<Member> memberList = memberRepository.findByEmail(email);
         assertThat(memberList.size()).isEqualTo(1);
     }
@@ -161,8 +166,8 @@ public class MemberRepositoryTests {
 
     @Test
     void 주문조회_회원_마지막주문정보(){
-        List<Member> orderDtList = memberRepository.findAllWithOrderDetail();
-        assertThat(orderDtList.size()).isEqualTo(5);
+        List<Object> list = memberRepository.findAllWithOrderDetail();
+        assertThat(list.size()).isEqualTo(4);
     }
     @AfterEach
     void clear() {
